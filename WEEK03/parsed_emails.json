@@ -1,0 +1,20 @@
+{
+    "emails": [
+        {
+            "id": "test0123",
+            "domain": "gmail.com"
+        },
+        {
+            "id": "pythonTEST123123",
+            "domain": "gmail.com"
+        },
+        {
+            "id": "abc",
+            "domain": "naver.com"
+        }
+    ],
+    "domain_count": {
+        "gmail.com": 2,
+        "naver.com": 1
+    }
+}
