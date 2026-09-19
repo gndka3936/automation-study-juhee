@@ -1,12 +1,17 @@
 import json
 import os
+from pathlib import Path
 from datetime import datetime
+from dotenv import load_dotenv
+
+load_dotenv()
 
 memo_file = os.getenv("MEMO_FILE", "memos.json")
+memo_file = Path(__file__).parent / memo_file
 
 def load_memos():
     try:
-        with open("memos.file", "r", encoding="utf-8") as file:
+        with open(memo_file, "r", encoding="utf-8") as file:
             return json.load(file)
     except FileNotFoundError:
         return []
@@ -15,7 +20,7 @@ def load_memos():
         return []
 
 def save_memos(memos):
-    with open("memos.file", "w", encoding="utf-8") as file:
+    with open(memo_file, "w", encoding="utf-8") as file:
         json.dump(memos, file, ensure_ascii=False, indent=4)
 
 def add_memo(memos):
@@ -72,3 +77,4 @@ while True:
         break
     else:
         print("잘못된 메뉴입니다.")
+
